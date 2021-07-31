@@ -1,0 +1,7 @@
+- if flash.present?
+  .row
+    .col-12.col-md-8.mx-auto
+      - flash.each do |key, message|
+        .alert.alert-dismissible.fade.show{:role => "alert", :class => "alert-#{key}"}
+          = message
+          %button.btn-close{:type => "button", "data-bs-dismiss" => "alert", "aria-label" => "Close"}

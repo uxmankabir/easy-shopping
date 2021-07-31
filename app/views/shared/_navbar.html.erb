@@ -1,0 +1,44 @@
+<nav class="navbar navbar-expand-md bg-primary navbar-dark">
+  <div class="container">
+    <%= link_to 'Easy Shopping', root_path, class: "navbar-brand" %>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navigationBar" aria-controls="navigationBar" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navigationBar">
+      <ul class="navbar-nav ms-auto">
+
+        <li class="nav-item">
+          <%= link_to  root_path, class: "align-items-center d-flex nav-link" do %>
+              <span class="material-icons-round me-1">home</span> Home
+            <% end %>
+        </li>
+
+        <%- if buyer_signed_in? %>
+          <li class="nav-item">
+            <%= link_to  session_path(current_buyer), method: :delete, class: "align-items-center d-flex nav-link" do %>
+              <span class="material-icons-round me-1">logout</span> Logout
+            <% end %>
+          </li>
+        <% else %>
+          <li class="nav-item">
+            <%= link_to new_session_path, class: "align-items-center d-flex nav-link" do %>
+              <span class="material-icons-round me-1">login</span> Log in
+            <% end %>
+          </li>
+          <li class="nav-item">
+            <%= link_to new_registration_path, class: "align-items-center d-flex nav-link" do %>
+              <span class="material-icons-round me-1">person_add</span> Sign up
+            <% end %>
+          </li>
+        <% end %>
+
+        <li class="nav-item">
+          <a class="align-items-center d-flex nav-link" href="#">
+            <span class="material-icons-round me-1">shopping_cart</span> Cart
+          </a>
+        </li>
+
+      </ul>
+    </div>
+  </div>
+</nav>

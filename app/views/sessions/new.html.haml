@@ -1,0 +1,17 @@
+.row
+  .col-12.col-md-8.col-lg-6.mx-auto
+
+    %h1.h3.text-center.my-4 Log in
+
+    = form_with model: @buyer, url: sessions_path do |f|
+
+      .form-floating.mb-3
+        = f.email_field :email, class: "form-control", required: true
+        = f.label :email, "Email"
+
+      .form-floating.mb-3
+        = f.password_field :password, class: "form-control", required: true
+        = f.label :password, "Password"
+
+      .text-center
+        = f.submit "Login", class: "btn btn-primary"

@@ -1,0 +1,27 @@
+.row
+  .col-12.col-md-8.col-lg-6.mx-auto
+
+    %h1.h3.text-center.my-4 Create new account
+
+    = render partial: 'shared/model_messages', locals: { model: @buyer }
+
+    = form_with model: @buyer, url: registrations_path do |f|
+
+      .form-floating.mb-3
+        = f.text_field :first_name, class: "form-control"
+        = f.label :first_name, "First Name"
+
+      .form-floating.mb-3
+        = f.text_field :last_name, class: "form-control"
+        = f.label :last_name, "Last Name"
+
+      .form-floating.mb-3
+        = f.email_field :email, class: "form-control"
+        = f.label :email, "Email"
+
+      .form-floating.mb-3
+        = f.password_field :password, class: "form-control"
+        = f.label :password, "Password"
+
+      .text-center
+        = f.submit "Signup", class: "btn btn-primary"

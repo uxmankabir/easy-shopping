@@ -1,0 +1,7 @@
+- if model.errors.any?
+  .alert.alert-danger.alert-dismissible.fade.show{:role => "alert"}
+    %ol.m-0
+      - model.errors.full_messages.each do |message|
+        %li
+          = message
+    %button.btn-close{:type => "button", "data-bs-dismiss" => "alert", "aria-label" => "Close"}
