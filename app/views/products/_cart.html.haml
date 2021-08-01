@@ -21,7 +21,10 @@
                           %h4.font-weight-300
                             = "Price: $ #{product.price}"
           .text-center
-            %button.btn.btn-primary{:type => "button"} Checkout
+            = form_tag orders_path do
+              = hidden_field_tag :product_ids, @products.ids
+              = submit_tag "Checkout", class: "btn btn-primary js-checkout", data: {buyer_signed_in: buyer_signed_in?}
+
         - else
           .empty-cart
             .icon

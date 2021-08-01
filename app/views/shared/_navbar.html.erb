@@ -15,6 +15,11 @@
 
         <%- if buyer_signed_in? %>
           <li class="nav-item">
+            <%= link_to  orders_path, class: "align-items-center d-flex nav-link #{active_class(orders_path)}" do %>
+                <span class="material-icons-round me-1">receipt_long</span> Orders History
+              <% end %>
+          </li>
+          <li class="nav-item">
             <%= link_to  session_path(current_buyer), method: :delete, class: "align-items-center d-flex nav-link" do %>
               <span class="material-icons-round me-1">logout</span> Logout
             <% end %>

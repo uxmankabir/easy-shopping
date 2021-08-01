@@ -7,5 +7,6 @@ Rails.application.routes.draw do
       get :cart
     end
   end
+  resources :orders, only: [:index, :create]
   root "products#index"
 end

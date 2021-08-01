@@ -1,0 +1,29 @@
+%h1.my-5 Orders History
+- if @orders.present?
+  - @orders.each_with_index do |order, index|
+    .order-container.mb-4
+      %h5
+        = "Order# #{index+1}"
+      .row
+        - order.order_items.each do |order_item|
+          .col-12.col-md-6.col-lg-4
+            .card.mb-3
+              .row.g-0.font-roboto
+                .col-4
+                  = image_tag order_item.product.image, alt: order_item.product.name, class: 'img-fluid rounded-start'
+                .col-8
+                  .card-body
+                    %h6.card-title.font-weight-700
+                      = order_item.product.name
+                    %div
+                      = "Available Quantity #{order_item.product.quantity}"
+                    %h5.font-weight-300
+                      = "Price: $ #{order_item.price}"
+      .small.text-center
+        = "Order placed #{time_ago_in_words(order.created_at)} ago"
+- else
+  .empty-orders
+    .icon
+      %span.material-icons-round warning
+    .message
+      You have not placed any order yet.

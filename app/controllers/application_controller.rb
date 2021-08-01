@@ -12,11 +12,17 @@ class ApplicationController < ActionController::Base
   end
 
   def authenticate_buyer!
-    redirect_to new_session_path unless buyer_signed_in?
+    unless buyer_signed_in?
+      flash[:warning] = "Please login to perform this action."
+      redirect_to new_session_path
+    end
   end
 
   def already_signed_in!
-    redirect_to root_path if buyer_signed_in?
+    if buyer_signed_in?
+      flash[:warning] = "You have logged in already."
+      redirect_to root_path
+    end
   end
 
 end

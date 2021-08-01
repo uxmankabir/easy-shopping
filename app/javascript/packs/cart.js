@@ -35,6 +35,14 @@ document.addEventListener("turbolinks:load", function() {
     })
   })
 
+  $(document).on("click", ".js-checkout", function(){
+    let buyer_signed_in = $(this).data("buyer-signed-in")
+    if(buyer_signed_in === true){
+      let data = []
+      setCookie("cart", data)
+    }
+  })
+
 })
 
 function addToCart(product_id){
