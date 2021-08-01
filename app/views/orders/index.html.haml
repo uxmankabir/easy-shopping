@@ -10,7 +10,7 @@
             .card.mb-3
               .row.g-0.font-roboto
                 .col-4
-                  = image_tag order_item.product.image, alt: order_item.product.name, class: 'img-fluid rounded-start'
+                  = image_tag url_for(order_item.product.image), alt: order_item.product.name, class: 'img-fluid rounded-start'
                 .col-8
                   .card-body
                     %h6.card-title.font-weight-700

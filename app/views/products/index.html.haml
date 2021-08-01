@@ -4,7 +4,7 @@
   - @products.each do |product|
     .col
       .card.h-100.product-card
-        = image_tag product.image, alt: product.name, class: 'card-img-top'
+        = image_tag url_for(product.image), alt: product.name, class: 'card-img-top'
         .card-body.text-center
           %h4.card-title
             = product.name

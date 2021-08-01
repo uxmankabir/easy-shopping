@@ -13,7 +13,7 @@
                   .card.mb-3
                     .row.g-0.font-roboto
                       .col-4
-                        = image_tag product.image, alt: product.name, class: 'img-fluid rounded-start'
+                        = image_tag url_for(product.image), alt: product.name, class: 'img-fluid rounded-start'
                       .col-8
                         .card-body
                           %h5.card-title.font-weight-700
