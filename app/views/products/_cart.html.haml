@@ -1,0 +1,34 @@
+#cartProducts.modal.modal-dialog-centered.fade{"aria-hidden" => "true", "aria-labelledby" => "cartProducts", :tabindex => "-1"}
+  .modal-dialog.modal-lg.modal-dialog-scrollable
+    .modal-content
+      .modal-header
+        %h5#cartProducts.modal-title Following items has been added to the cart.
+        %button.btn-close{"aria-label" => "Close", "data-bs-dismiss" => "modal", :type => "button"}
+      .modal-body
+        - if @products.present?
+          .container-fluid
+            .row
+              - @products.each do |product|
+                .col-12.col-lg-6
+                  .card.mb-3
+                    .row.g-0.font-roboto
+                      .col-4
+                        = image_tag product.image, alt: product.name, class: 'img-fluid rounded-start'
+                      .col-8
+                        .card-body
+                          %h5.card-title.font-weight-700
+                            = product.name
+                          %h4.font-weight-300
+                            = "Price: $ #{product.price}"
+          .text-center
+            %button.btn.btn-primary{:type => "button"} Checkout
+        - else
+          .empty-cart
+            .icon
+              %span.material-icons-round remove_shopping_cart
+            .message
+              You have not added any item to the cart yet.
+
+
+
+

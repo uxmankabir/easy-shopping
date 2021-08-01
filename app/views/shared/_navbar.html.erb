@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-md bg-primary navbar-dark">
+<nav class="navbar navbar-expand-md bg-primary navbar-dark fixed-top">
   <div class="container">
     <%= link_to 'Easy Shopping', root_path, class: "navbar-brand" %>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navigationBar" aria-controls="navigationBar" aria-expanded="false" aria-label="Toggle navigation">
@@ -8,7 +8,7 @@
       <ul class="navbar-nav ms-auto">
 
         <li class="nav-item">
-          <%= link_to  root_path, class: "align-items-center d-flex nav-link" do %>
+          <%= link_to  root_path, class: "align-items-center d-flex nav-link #{active_class(root_path)}" do %>
               <span class="material-icons-round me-1">home</span> Home
             <% end %>
         </li>
@@ -21,24 +21,26 @@
           </li>
         <% else %>
           <li class="nav-item">
-            <%= link_to new_session_path, class: "align-items-center d-flex nav-link" do %>
+            <%= link_to new_session_path, class: "align-items-center d-flex nav-link #{active_class(new_session_path)}" do %>
               <span class="material-icons-round me-1">login</span> Log in
             <% end %>
           </li>
           <li class="nav-item">
-            <%= link_to new_registration_path, class: "align-items-center d-flex nav-link" do %>
+            <%= link_to new_registration_path, class: "align-items-center d-flex nav-link #{active_class(new_registration_path)}" do %>
               <span class="material-icons-round me-1">person_add</span> Sign up
             <% end %>
           </li>
         <% end %>
 
-        <li class="nav-item">
-          <a class="align-items-center d-flex nav-link" href="#">
+        <li class="nav-item position-relative">
+          <%= button_tag class: "align-items-center d-flex nav-link btn js-nav-cart-btn active", type: "button" do %>
             <span class="material-icons-round me-1">shopping_cart</span> Cart
-          </a>
+            <span class="cart-counter js-cart-counter"></span>
+          <% end %>
         </li>
 
       </ul>
     </div>
   </div>
 </nav>
+<br><br>

@@ -1,1 +1,17 @@
-%h1 Products
+%h1.my-5 Products
+
+.row.row-cols-1.row-cols-sm-2.row-cols-md-3.row-cols-lg-4.g-4
+  - @products.each do |product|
+    .col
+      .card.h-100.product-card
+        = image_tag product.image, alt: product.name, class: 'card-img-top'
+        .card-body.text-center
+          %h4.card-title
+            = product.name
+          %hr
+          %p.quantity
+            = "Available Quantity #{product.quantity}"
+          %p.price
+            = "$ #{product.price}"
+          .js-cart-btn{data: {product_id: product.id}}
+

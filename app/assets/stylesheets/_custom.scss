@@ -1,0 +1,59 @@
+.cart-counter {
+  position: absolute;
+  top: -5px;
+  right: -10px;
+  background: var(--bs-danger);
+  width: 2.5ch;
+  height: 2.5ch;
+  border-radius: 2.5ch;
+  text-align: center;
+  line-height: 2.5ch;
+  font-size: 14px;
+}
+
+.product-card{
+  transition: .3s ease-in-out;
+  font-family: 'Roboto';
+  .card-title{
+    font-weight: 400;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+  .quantity{
+    font-weight: 700;
+    color: #545454;
+  }
+  .price{
+    font-weight: 300;
+    font-size: 2rem;
+  }
+  &:hover{
+    scale: 1.02;
+    box-shadow: 0 10px 2rem 5px #eee;
+  }
+}
+
+.font{
+  &-roboto{
+    font-family: "Roboto", 'Segoe UI', Tahoma, Verdana, sans-serif !important;
+  }
+  &-weight-300{
+    font-weight: 300 !important;
+  }
+  &-weight-700{
+    font-weight: 700 !important;
+  }
+}
+
+.empty-cart{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-block: 5rem;
+  color: darkgray;
+  span{
+    font-size: 5rem;
+  }
+}
