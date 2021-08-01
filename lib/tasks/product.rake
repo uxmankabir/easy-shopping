@@ -1,6 +1,8 @@
+require 'open-uri'
+
 namespace :products do
   desc "This task creates products"
-  task :create do
+  task :create => :environment do
     products = [
       {
         name: "Shoes",
@@ -65,7 +67,9 @@ namespace :products do
     ]
     products.each do |p|
       product = Product.new(name: p[:name], price: p[:price], quantity: p[:quantity])
-      product.image.attach(io: open(p[:image]), filename: "#{p[:name].parameterize.underscore}.png")
+      image_url = URI.parse(p[:image])
+      image_file = URI.open(image_url)
+      product.image.attach(io: image_file, filename: "#{p[:name].parameterize.underscore}.png")
       product.save
     end
   end
